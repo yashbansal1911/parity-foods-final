@@ -15,6 +15,7 @@ import CheckoutPage from './pages/CheckoutPage';
 import RecipePage from './pages/RecipePage';
 import RecipesPage from './pages/RecipesPage';
 import KachniGanuPage from './pages/KachniGanuPage';
+import WhatsAppWidget from './components/WhatsAppWidget';
 
 // ScrollToTop component to ensure page starts at top on navigation
 const ScrollToTopWrapper = () => {
@@ -48,6 +49,8 @@ const MainLayout = () => {
         </Routes>
       </main>
       <Footer className={isKachiGhani ? "mt-0" : "mt-20"} />
+      {/* WhatsApp floating widget — renders on every page */}
+      <WhatsAppWidget />
     </div>
   );
 };

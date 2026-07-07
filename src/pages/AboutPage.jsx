@@ -3,16 +3,6 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Leaf, Award, TrendingUp } from 'lucide-react';
 
 const AboutPage = () => {
-    const team = [
-
-        {
-            name: "Bharat Bansal",
-            role: "Executive Director",
-            image: "/images/bharat-bansal.jpg",
-            desc: "A Master of Business Administration from O.P. Jindal Global University. Bharat brings fresh energy, modern strategies, and deep market knowledge."
-        }
-    ];
-
     const milestones = [
         { year: "1980s", title: "The Inception", desc: "Started as a small trading unit." },
         { year: "1995", title: "First Mill", desc: "Established the first mustard oil milling unit." },
@@ -104,45 +94,7 @@ const AboutPage = () => {
                 </div>
             </section>
 
-            {/* Leadership Team */}
-            <section className="py-32 bg-white">
-                <div className="container mx-auto px-6">
-                    <div className="text-center mb-24">
-                        <h3 className="text-brand-gold font-bold tracking-widest uppercase mb-4">Leadership</h3>
-                        <h2 className="text-5xl font-serif font-bold text-brand-dark">Meet The Visionaries</h2>
-                    </div>
 
-                    <div className="flex justify-center">
-                        {team.map((member, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.2 }}
-                                className="group relative max-w-sm w-full"
-                            >
-                                <div className="rounded-[2rem] overflow-hidden mb-8 relative bg-gray-50">
-                                    <div className="absolute inset-0 bg-brand-dark/20 group-hover:bg-brand-dark/0 transition-colors duration-500 z-10" />
-                                    <img
-                                        src={member.image}
-                                        alt={member.name}
-                                        className="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
-                                    />
-                                </div>
-
-                                <div className="text-center">
-                                    <h3 className="text-3xl font-serif font-bold text-brand-dark mb-2">{member.name}</h3>
-                                    <p className="text-brand-gold font-bold uppercase tracking-widest text-sm mb-6">{member.role}</p>
-                                    <p className="text-gray-600 leading-relaxed">
-                                        {member.desc}
-                                    </p>
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-            </section>
         </div>
     );
 };

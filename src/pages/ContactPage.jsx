@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { 
     Phone, Mail, MapPin, Loader2, CheckCircle, AlertCircle, 
     ChevronDown, Leaf, Shield, Award, Users, Building, 
-    DollarSign, Layers, Upload, ArrowRight, Check, HelpCircle 
+    Upload, ArrowRight, Check 
 } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 
@@ -41,13 +41,9 @@ const ContactPage = () => {
         warehouseAvailable: 'Yes',
         warehouseSize: 'Below 500',
         salespersons: 'None',
-        investmentCapacity: '₹1–5 Lakhs',
-        turnover: 'Below ₹5 Lakhs',
         retailOutlets: 'Below 50',
         brandsDistributed: '',
         areaCovered: '',
-        whyDistributor: '',
-        suitability: '',
         startOperations: 'Immediately',
         gstCertificate: null,
         businessRegCertificate: null,
@@ -151,20 +147,15 @@ const ContactPage = () => {
                 TERRITORY DETAILS:
                 - Location: ${distributorData.city}, ${distributorData.district}, ${distributorData.state} - ${distributorData.pinCode}
                 
-                INFRASTRUCTURE & FINANCE:
+                INFRASTRUCTURE:
                 - Warehouse Available: ${distributorData.warehouseAvailable}
                 - Warehouse Size: ${distributorData.warehouseSize} sq ft
                 - Salespersons: ${distributorData.salespersons}
-                - Proposed Investment: ${distributorData.investmentCapacity}
-                - Monthly FMCG Turnover: ${distributorData.turnover}
                 
-                MARKET REACH:
+                MARKET REACH & OPERATIONS:
                 - Retail Outlets Served: ${distributorData.retailOutlets}
                 - Brands Distributed: ${distributorData.brandsDistributed || 'None'}
                 - Distribution Area Covered: ${distributorData.areaCovered || 'None'}
-                
-                QUALIFICATION:
-                - Suitability Reason: ${distributorData.suitability || 'N/A'}
                 - Start Timeline: ${distributorData.startOperations}
                 
                 ATTACHMENTS LOADED:
@@ -190,9 +181,8 @@ const ContactPage = () => {
                 fullName: '', mobile: '', whatsApp: '', email: '', firmName: '',
                 businessType: 'Distributor', gstNumber: '', experience: 'Less than 1 year',
                 state: '', district: '', city: '', pinCode: '', warehouseAvailable: 'Yes',
-                warehouseSize: 'Below 500', salespersons: 'None', investmentCapacity: '₹1–5 Lakhs',
-                turnover: 'Below ₹5 Lakhs', retailOutlets: 'Below 50', brandsDistributed: '',
-                areaCovered: '', whyDistributor: '', suitability: '', startOperations: 'Immediately',
+                warehouseSize: 'Below 500', salespersons: 'None', retailOutlets: 'Below 50', brandsDistributed: '',
+                areaCovered: '', startOperations: 'Immediately',
                 gstCertificate: null, businessRegCertificate: null, warehousePhotos: null, visitingCard: null,
                 declared: false
             });
@@ -212,25 +202,9 @@ const ContactPage = () => {
     const inputClasses = "w-full px-5 py-3 rounded-xl border border-gray-200 focus:border-brand-gold focus:ring-2 focus:ring-brand-gold/20 outline-none transition-all bg-white text-brand-dark text-[15px]";
     const labelClasses = "block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2";
 
-    // Why Partner With Us items
-    const benefits = [
-        { title: 'High Market Demand', desc: 'Edible oil is an essential household commodity with consistent repeat sales and kitchen demand.' },
-        { title: 'Attractive Distributor Margins', desc: 'Lucrative margin structure with performance incentives to maximize your business profitability.' },
-        { title: 'Strong Brand Support', desc: 'Direct support from channel sales team, regional distributors, and marketing staff.' },
-        { title: 'Marketing Assistance', desc: 'Complete point-of-sale display kits, in-store branding, retail banners, and schemes.' },
-        { title: 'Reliable Supply Chain', desc: 'Fast, secure order dispatch directly from our advanced processing unit to your local depot.' },
-        { title: 'Growth Opportunities Across India', desc: 'Exclusive territory expansion and multi-district channel opportunities for serious partners.' },
-    ];
 
-    // Requirements items
-    const requirements = [
-        { title: 'FMCG Distribution Experience', desc: 'Prior experience distributing food, groceries, or FMCG commodities is highly preferred.' },
-        { title: 'Investment Capability', desc: 'Adequate working capital buffer starting from ₹1-5 Lakhs for stock buffers and depot management.' },
-        { title: 'Storage/Warehouse Facility', desc: 'Safe, dry storage space (minimum 500+ sq ft) matching local sanitary and distribution norms.' },
-        { title: 'Local Market Network', desc: 'Robust established relationships with local general retailers, grocers, and supermarkets.' },
-        { title: 'GST Registration', desc: 'Valid active Goods and Services Tax registration and local business licenses.' },
-        { title: 'Commitment to Business Growth', desc: 'Dedicated focus, professional sales team, and shared vision to capture local market share.' },
-    ];
+
+
 
     // FAQ list
     const faqs = [
@@ -509,41 +483,9 @@ const ContactPage = () => {
                                 </div>
                             </section>
 
-                            {/* 2. Why Partner With Us Section */}
-                            <section className="space-y-12">
-                                <div className="text-center max-w-xl mx-auto">
-                                    <span className="text-brand-gold text-xs font-bold tracking-[0.25em] uppercase block mb-3">Benefits</span>
-                                    <h3 className="text-3xl md:text-4xl font-serif font-bold text-brand-dark">Why Partner With Us?</h3>
-                                </div>
-                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                                    {benefits.map(({ title, desc }) => (
-                                        <div key={title} className="bg-white border border-gray-100/80 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
-                                            <div className="w-10 h-10 bg-brand-light text-brand-gold rounded-xl flex items-center justify-center mb-4">
-                                                <Check size={18} className="stroke-[3]" />
-                                            </div>
-                                            <h4 className="text-lg font-bold text-brand-dark mb-2">{title}</h4>
-                                            <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>
-                                        </div>
-                                    ))}
-                                </div>
-                            </section>
 
-                            {/* 3. Distributor Requirements Section */}
-                            <section className="bg-brand-light rounded-[2.5rem] p-8 md:p-16 space-y-12">
-                                <div className="text-center max-w-xl mx-auto">
-                                    <span className="text-brand-gold text-xs font-bold tracking-[0.25em] uppercase block mb-3">Qualifications</span>
-                                    <h3 className="text-3xl md:text-4xl font-serif font-bold text-brand-dark">Partner Requirements</h3>
-                                </div>
-                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                                    {requirements.map(({ title, desc }) => (
-                                        <div key={title} className="bg-white rounded-2xl p-6 border border-gray-200/30 space-y-2">
-                                            <span className="w-2.5 h-2.5 bg-brand-gold rounded-full inline-block" />
-                                            <h4 className="text-base font-bold text-brand-dark pt-1">{title}</h4>
-                                            <p className="text-gray-500 text-xs leading-relaxed">{desc}</p>
-                                        </div>
-                                    ))}
-                                </div>
-                            </section>
+
+
 
                             {/* 4. Business Potential Section */}
                             <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -719,46 +661,30 @@ const ContactPage = () => {
                                             </div>
                                         </div>
 
-                                        {/* SECTION 5: Financial Details */}
+                                        {/* SECTION 5: Market Reach & Operations */}
                                         <div className="space-y-6">
-                                            <h4 className="text-base font-bold text-brand-dark border-l-4 border-brand-gold pl-3">5. Financial Qualifications</h4>
-                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                                <div>
-                                                    <label className={labelClasses}>Proposed Investment Capacity *</label>
-                                                    <select name="investmentCapacity" value={distributorData.investmentCapacity} onChange={handleDistributorChange} required className={inputClasses}>
-                                                        <option value="₹1–5 Lakhs">₹1–5 Lakhs</option>
-                                                        <option value="₹5–10 Lakhs">₹5–10 Lakhs</option>
-                                                        <option value="₹10–25 Lakhs">₹10–25 Lakhs</option>
-                                                        <option value="₹25–50 Lakhs">₹25–50 Lakhs</option>
-                                                        <option value="₹50 Lakhs+">₹50 Lakhs+</option>
-                                                    </select>
-                                                </div>
-                                                <div>
-                                                    <label className={labelClasses}>Monthly FMCG Sales Turnover *</label>
-                                                    <select name="turnover" value={distributorData.turnover} onChange={handleDistributorChange} required className={inputClasses}>
-                                                        <option value="Below ₹5 Lakhs">Below ₹5 Lakhs</option>
-                                                        <option value="₹5–10 Lakhs">₹5–10 Lakhs</option>
-                                                        <option value="₹10–25 Lakhs">₹10–25 Lakhs</option>
-                                                        <option value="₹25–50 Lakhs">₹25–50 Lakhs</option>
-                                                        <option value="₹50 Lakhs+">₹50 Lakhs+</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        {/* SECTION 6: Market Reach */}
-                                        <div className="space-y-6">
-                                            <h4 className="text-base font-bold text-brand-dark border-l-4 border-brand-gold pl-3">6. Market Reach</h4>
+                                            <h4 className="text-base font-bold text-brand-dark border-l-4 border-brand-gold pl-3">5. Market Reach & Operations</h4>
                                             <div className="grid grid-cols-1 gap-6">
-                                                <div>
-                                                    <label className={labelClasses}>Number of Retail Outlets Served *</label>
-                                                    <select name="retailOutlets" value={distributorData.retailOutlets} onChange={handleDistributorChange} required className={inputClasses}>
-                                                        <option value="Below 50">Below 50</option>
-                                                        <option value="50–100">50–100</option>
-                                                        <option value="100–300">100–300</option>
-                                                        <option value="300–500">300–500</option>
-                                                        <option value="500+">500+</option>
-                                                    </select>
+                                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                                    <div>
+                                                        <label className={labelClasses}>Number of Retail Outlets Served *</label>
+                                                        <select name="retailOutlets" value={distributorData.retailOutlets} onChange={handleDistributorChange} required className={inputClasses}>
+                                                            <option value="Below 50">Below 50</option>
+                                                            <option value="50–100">50–100</option>
+                                                            <option value="100–300">100–300</option>
+                                                            <option value="300–500">300–500</option>
+                                                            <option value="500+">500+</option>
+                                                        </select>
+                                                    </div>
+                                                    <div>
+                                                        <label className={labelClasses}>When can you start operations? *</label>
+                                                        <select name="startOperations" value={distributorData.startOperations} onChange={handleDistributorChange} required className={inputClasses}>
+                                                            <option value="Immediately">Immediately</option>
+                                                            <option value="Within 1 Month">Within 1 Month</option>
+                                                            <option value="Within 3 Months">Within 3 Months</option>
+                                                            <option value="Within 6 Months">Within 6 Months</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
                                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                                     <div>
@@ -773,33 +699,9 @@ const ContactPage = () => {
                                             </div>
                                         </div>
 
-                                        {/* SECTION 7: Suitability Details */}
+                                        {/* SECTION 6: Document Verification */}
                                         <div className="space-y-6">
-                                            <h4 className="text-base font-bold text-brand-dark border-l-4 border-brand-gold pl-3">7. Qualification Questions</h4>
-                                            <div className="grid grid-cols-1 gap-6">
-                                                <div>
-                                                    <label className={labelClasses}>Why do you want to become a Parity distributor?</label>
-                                                    <textarea name="whyDistributor" value={distributorData.whyDistributor} onChange={handleDistributorChange} rows="3" className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:border-brand-gold focus:ring-2 focus:ring-brand-gold/20 outline-none bg-white text-sm" placeholder="Explain your interest" />
-                                                </div>
-                                                <div>
-                                                    <label className={labelClasses}>What makes your business suitable for this opportunity?</label>
-                                                    <textarea name="suitability" value={distributorData.suitability} onChange={handleDistributorChange} rows="3" className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:border-brand-gold focus:ring-2 focus:ring-brand-gold/20 outline-none bg-white text-sm" placeholder="Briefly describe your logistics and sales capacity" />
-                                                </div>
-                                                <div>
-                                                    <label className={labelClasses}>When can you start operations? *</label>
-                                                    <select name="startOperations" value={distributorData.startOperations} onChange={handleDistributorChange} required className={inputClasses}>
-                                                        <option value="Immediately">Immediately</option>
-                                                        <option value="Within 1 Month">Within 1 Month</option>
-                                                        <option value="Within 3 Months">Within 3 Months</option>
-                                                        <option value="Within 6 Months">Within 6 Months</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        {/* SECTION 8: Document Uploads */}
-                                        <div className="space-y-6">
-                                            <h4 className="text-base font-bold text-brand-dark border-l-4 border-brand-gold pl-3">8. Document Verification</h4>
+                                            <h4 className="text-base font-bold text-brand-dark border-l-4 border-brand-gold pl-3">6. Document Verification</h4>
                                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                                 {/* File 1 */}
                                                 <div className="bg-gray-50/50 border border-dashed border-gray-200 rounded-xl p-4 flex flex-col items-center justify-center text-center">
